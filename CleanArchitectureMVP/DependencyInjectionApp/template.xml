@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<template
+    name="DependencyInjection - App"
+    description="Creates Dagger2 dependency injection packages, including component, module, qualifier and scope"
+    format="4"
+    revision="1">
+
+    <category value="Clean + MVP" />
+
+    <globals file="globals.xml.ftl" />
+
+    <execute file="recipe.xml.ftl" />
+</template>

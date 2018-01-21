@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<template
+    name="Feature - Presentation"
+    description="Creates a Feature package in the presentation layer"
+    format="4"
+    revision="1">
+
+    <category value="Clean + MVP" />
+
+    <parameter
+        id="featureName"
+        name="Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="Feature"
+        help="The name of the feature to be created, e.g. 'Checkout'." />
+
+    <parameter
+        id="packName"
+        name="Package Name"
+        type="string"
+        constraints="nonempty|unique"
+        default="blank"
+        visibility="false"
+        suggest="${classToResource(featureName)}"
+        help="The name of the package to create" />
+
+    <parameter
+        id="createContractAndPresenter"
+        name="Create Contract and Presenter"
+        type="boolean"
+        default="true"
+        help="If true, a contract (interface) and presenter that implements that contract will be created" />
+
+    <parameter
+        id="contractName"
+        name="Contract Name"
+        type="string"
+        default="FeatureContract"
+        visibility="createContractAndPresenter"
+        suggest="${featureName}Contract"
+        help="The name of the contract class to create" />
+
+    <parameter
+        id="presenterName"
+        name="Presenter Name"
+        type="string"
+        default="FeaturePresenter"
+        visibility="createContractAndPresenter"
+        suggest="${featureName}Presenter"
+        help="The name of the presenter class to create" />
+
+    <parameter
+        id="createActivity"
+        name="Create Activity"
+        type="boolean"
+        default="true"
+        help="If true, an activity will be created" />
+
+    <parameter
+        id="activityName"
+        name="Activity Name"
+        type="string"
+        default="FeatureActivity"
+        constraints="activity|nonempty|unique"
+        visibility="createActivity"
+        suggest="${featureName}Activity"
+        help="The name of the activity class to create" />
+
+    <parameter
+        id="activityLayoutName"
+        name="Activity Layout Name"
+        type="string"
+        default="activity_feature"
+        constraints="layout|nonempty|unique"
+        visibility="createActivity"
+        suggest="activity_${classToResource(activityName)}"
+        help="The name of the activity layout to create" />
+
+    <parameter
+        id="createFragment"
+        name="Create Fragment"
+        type="boolean"
+        default="true"
+        help="If true, a fragment will be created" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Name"
+        type="string"
+        default="FeatureFragment"
+        constraints="class|nonempty|unique"
+        visibility="createFragment"
+        suggest="${featureName}Fragment"
+        help="The name of the fragment class to create" />
+
+    <parameter
+        id="fragmentLayoutName"
+        name="Fragment Layout Name"
+        type="string"
+        default="fragment_feature"
+        constraints="layout|nonempty|unique"
+        visibility="createFragment"
+        suggest="fragment_${classToResource(fragmentName)}"
+        help="The name of the fragment layout to create" />
+
+    <globals file="globals.xml.ftl" />
+
+    <execute file="recipe.xml.ftl" />
+</template>

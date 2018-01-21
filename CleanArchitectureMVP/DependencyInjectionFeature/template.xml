@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<template
+    name="DependencyInjection - Feature"
+    description="Creates a Dagger2 component, module and scope for the specified feature"
+    format="4"
+    revision="1">
+
+    <category value="Clean + MVP" />
+
+    <parameter
+        id="featureName"
+        name="Feature Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="Feature"
+        help="The name of the feature that requires Dependency Injection. It should match an existing Activity, e.g. Checkout for CheckoutActivity" />
+
+    <parameter
+        id="componentName"
+        name="Component Name"
+        type="string"
+        default="FeatureComponent"
+        visibility="false"
+        suggest="${featureName}Component" />
+
+    <parameter
+        id="moduleName"
+        name="Module Name"
+        type="string"
+        default="FeatureModule"
+        visibility="false"
+        suggest="${featureName}Module" />
+
+    <parameter
+        id="scopeName"
+        name="Scope Name"
+        type="string"
+        default="ScopeComponent"
+        visibility="false"
+        suggest="${featureName}Scope" />
+
+    <parameter
+        id="activityName"
+        name="Activity Name"
+        type="string"
+        default="FeatureActivity"
+        visibility="false"
+        suggest="${featureName}Activity" />
+
+    <globals file="globals.xml.ftl" />
+
+    <execute file="recipe.xml.ftl" />
+</template>
