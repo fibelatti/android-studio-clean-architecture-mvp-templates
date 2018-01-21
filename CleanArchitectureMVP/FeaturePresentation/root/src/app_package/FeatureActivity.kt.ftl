@@ -41,7 +41,7 @@ class ${activityName} :
     
     //region Override methods
     override fun getComponent(activity: BaseActivity): BaseFeatureComponent =
-        TODO("YourApplicationFile.appComponent.plus(YourFeatureModule()")
+        TODO("YourApplicationFile.appComponent.plus(YourFeatureModule(activity))")
 
     override fun handleError(errorMessage: String?) {
         TODO("not implemented")
