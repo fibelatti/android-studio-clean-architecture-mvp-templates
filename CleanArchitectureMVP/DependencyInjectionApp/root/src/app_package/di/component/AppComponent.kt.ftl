@@ -1,7 +1,7 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.component
+package ${mainSourceSetPackage}.di.component
 
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.module.AppModule
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.scope.AppScope
+import ${mainSourceSetPackage}.di.module.AppModule
+import ${mainSourceSetPackage}.di.scope.AppScope
 import dagger.Component
 
 @Component(

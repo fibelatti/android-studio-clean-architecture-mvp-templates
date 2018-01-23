@@ -1,4 +1,4 @@
-package com.fibelatti.raffler.di.module
+package ${mainSourceSetPackage}.di.module
 
 import android.content.Context
 import android.support.v4.app.FragmentActivity

@@ -1,6 +1,6 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.${packName?replace('_', '')}
+package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base.BaseContract
+import ${mainSourceSetPackage}.presentation.base.BaseContract
 
 interface ${contractName} {
     interface Presenter : BaseContract.Presenter<View> {

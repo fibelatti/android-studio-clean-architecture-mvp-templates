@@ -127,7 +127,7 @@ src/
 #### Feature - Presentation
 
 1. In Android Studio, select the `Project` view
-2. Right click and select `New` > `Clean Architecture` > `Feature - Presentation`
+2. Right click and select `New` > `Clean + MVP` > `Feature - Presentation`
 3. Type in the `Name` of the feature, e.g. `TopUp`, `Checkout`, `PaymentMethods`
 4. Everything else is done automatically, following the guidelines and convetions defined by the team
 5. You can uncheck the boxes in case you **don't** want to create:
@@ -141,7 +141,7 @@ src/
 1. **Don't do it**
 2. They use `ApacheFreeMarker` (`.ftl` extension)
 3. [This](http://www.i-programmer.info/professional-programmer/resources-and-tools/6845-android-adt-template-format-document.html) is probably the best docummentation online. Other than that there are several [github repositories](https://github.com/search?q=android+studio+template), [this tutorial](https://riggaroo.co.za/custom-file-template-group-android-studiointellij/) and [this article](https://medium.com/androidstarters/mastering-android-studio-templates-ed8fdd98cb78)
-4. Since `srcDir` and `srcOut` are only mapped to the `java source set`, there are several `?replace('java','kotlin')` in `recipe.xml.ftl`
+4. Since `srcDir` and `srcOut` are only mapped to the `java source set`, there is a property in `globals.xml.ftl` named `kotlinMainSourceSet` which does `srcOut?replace('java','kotlin')` and is used in `recipe.xml.ftl`
 5. Since `classToResource` would convert `SomeCompositeName` to `some_composite_name` and that doesn't follow the recommended convetion for package names, there are several `?replace('_', '')` in `recipe.xml.ftl` and in `*.kt.ftl` files located at `[TEMPLATE]\root\src\app_package`
-6. Since `applicationIdSuffix` in `build.gradle` would afftect where the files are generated, there are several `?replace('debug|staging|systest', '', 'r')` in `recipe.xml.ftl` and a `?replace('.debug|.staging|.systest', '', 'r')` in the package declaration of `*.kt.ftl` files located at `[TEMPLATE]\root\src\app_package`
+6. Since `applicationIdSuffix` in `build.gradle` would afftect where the files are generated there is a property in `globals.xml.ftl` named `kotlinMainSourceSet` which does `srcOut?replace('.debug|.staging|.systest', '', 'r')` that is used in `recipe.xml.ftl` and a property named `mainSourceSetPackage` which does `packageName?replace('.debug|.staging|.systest', '', 'r')` and is used in all `*.kt.ftl` at `[TEMPLATE]\root\src\app_package`
 7. In the `?replace()` function the **first argument** can be a regex, and if that's the case than the funcion takes `r` as the **third argument**

@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.common
+package ${mainSourceSetPackage}.presentation.common
 
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

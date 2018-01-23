@@ -1,10 +1,10 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.module
+package ${mainSourceSetPackage}.di.module
 
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.qualifier.AppQualifier
+import ${mainSourceSetPackage}.di.qualifier.AppQualifier
 import dagger.Module
 import dagger.Provides
 import java.util.*

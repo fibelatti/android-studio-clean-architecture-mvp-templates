@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base
+package ${mainSourceSetPackage}.presentation.base
 
 import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.common.SchedulerProvider
 

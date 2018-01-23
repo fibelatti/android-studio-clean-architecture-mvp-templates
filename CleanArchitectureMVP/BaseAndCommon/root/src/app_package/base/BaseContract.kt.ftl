@@ -1,7 +1,7 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base
+package ${mainSourceSetPackage}.presentation.base
 
 import android.widget.FrameLayout
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.component.BaseFeatureComponent
+import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
 
 interface BaseContract {
     interface View {

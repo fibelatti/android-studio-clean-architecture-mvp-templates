@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base
+package ${mainSourceSetPackage}.presentation.base
 
 import android.support.v4.app.Fragment
 

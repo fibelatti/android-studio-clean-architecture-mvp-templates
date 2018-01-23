@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.qualifier
+package ${mainSourceSetPackage}.di.qualifier
 
 import javax.inject.Qualifier
 

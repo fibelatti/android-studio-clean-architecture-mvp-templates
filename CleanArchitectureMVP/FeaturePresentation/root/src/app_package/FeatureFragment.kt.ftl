@@ -1,10 +1,10 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.${packName?replace('_', '')}
+package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
 import android.content.Context
 import android.widget.FrameLayout
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.component.BaseFeatureComponent
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base.BaseActivity
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base.BaseFragment
+import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
+import ${mainSourceSetPackage}.presentation.base.BaseActivity
+import ${mainSourceSetPackage}.presentation.base.BaseFragment
 import kotlinx.android.synthetic.main.${fragmentLayoutName}.*
 
 //region Top level declarations

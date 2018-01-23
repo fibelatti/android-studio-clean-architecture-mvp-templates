@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.scope
+package ${mainSourceSetPackage}.di.scope
 
 import javax.inject.Scope
 

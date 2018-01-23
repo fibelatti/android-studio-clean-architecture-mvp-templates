@@ -1,4 +1,4 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.di.component
+package ${mainSourceSetPackage}.di.component
 
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity

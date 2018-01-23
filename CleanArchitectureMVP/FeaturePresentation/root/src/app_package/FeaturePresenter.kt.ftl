@@ -1,7 +1,7 @@
-package ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.${packName?replace('_', '')}
+package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.base.BasePresenter
-import ${packageName?replace('.debug|.staging|.systest', '', 'r')}.presentation.common.SchedulerProvider
+import ${mainSourceSetPackage}.presentation.base.BasePresenter
+import ${mainSourceSetPackage}.presentation.common.SchedulerProvider
 
 class ${presenterName}(
     schedulerProvider: SchedulerProvider
