@@ -34,6 +34,7 @@ src/
 │       │   └── ViewTypeDelegate.kt
 │       ├── common/
 │       │   ├── AppSchedulerProvider.kt
+│       │   ├── ObservableView.kt
 │       │   └── SchedulerProvider.kt
 │       ├── somefeature/
 │       │   ├── SomeFeatureActivity.kt

@@ -29,6 +29,10 @@
         to="${escapeXmlAttribute(kotlinMainSourceSet)}/presentation/common/AppSchedulerProvider.kt" />
 
     <instantiate
+        from="src/app_package/common/ObservableView.kt.ftl"
+        to="${escapeXmlAttribute(kotlinMainSourceSet)}/presentation/common/ObservableView.kt" />
+
+    <instantiate
         from="src/app_package/common/SchedulerProvider.kt.ftl"
         to="${escapeXmlAttribute(kotlinMainSourceSet)}/presentation/common/SchedulerProvider.kt" />
 </recipe>

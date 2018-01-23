@@ -32,8 +32,6 @@ class ${fragmentName} :
     //endregion
     
     //region Override properties
-    override val rootLayout: FrameLayout?
-        get() = layoutRoot
     //endregion
     
     //region Override Lifecycle methods
@@ -43,6 +41,16 @@ class ${fragmentName} :
         activity?.let {
             getComponent(it as BaseActivity).inject(this)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        TODO("presenter.bind(this)")
+    }
+
+    override fun onPause() {
+        TODO("presenter.unbind()")
+        super.onPause()
     }
     //endregion
     
