@@ -1,11 +1,9 @@
 package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
 import android.content.Context
-import android.widget.FrameLayout
 import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
 import ${mainSourceSetPackage}.presentation.base.BaseActivity
 import ${mainSourceSetPackage}.presentation.base.BaseFragment
-import kotlinx.android.synthetic.main.${fragmentLayoutName}.*
 
 //region Top level declarations
 //endregion
@@ -19,9 +17,7 @@ class ${fragmentName} :
         fun newInstance() = ${fragmentName}()
     }
     
-    interface Callback {
-        
-    }
+    interface Callback
     //endregion
     
     //region Public properties
@@ -38,8 +34,8 @@ class ${fragmentName} :
     override fun onAttach(context: Context?) {
         super.onAttach(context)
 
-        activity?.let {
-            getComponent(it as BaseActivity).inject(this)
+        (activity as? BaseActivity)?.let {
+            getComponent(it).inject(this)
         }
     }
 

@@ -2,11 +2,9 @@ package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
 import android.content.Context
 import android.os.Bundle
-import android.widget.FrameLayout
 import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
 import ${mainSourceSetPackage}.presentation.base.BaseActivity
 import ${mainSourceSetPackage}.presentation.base.BaseIntentBuilder
-import kotlinx.android.synthetic.main.${activityLayoutName}.*
 
 //region Top level declarations
 //endregion
@@ -61,8 +59,5 @@ class ${activityName} :
     
     //region Private methods
     //endregion
-    
-    class IntentBuilder(context: Context) : BaseIntentBuilder<${activityName}>(context, ${activityName}::class.java) {
-        
-    }
+    class IntentBuilder(context: Context) : BaseIntentBuilder<${activityName}>(context, ${activityName}::class.java)
 }
