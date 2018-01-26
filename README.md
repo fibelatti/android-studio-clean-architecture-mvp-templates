@@ -12,17 +12,17 @@ src/
 │   │   ├── component/
 │   │   │   ├── AppComponent.kt
 │   │   │   ├── BaseFeatureComponent.kt
-│   │   │   ├── SomeFeatureComoponent.kt
+│   │   │   ├── YourFeatureComponent.kt
 │   │   │   └── ...
 │   │   ├── module/
-│   │   │   ├── AppComponent.kt
-│   │   │   ├── SomeFeatureModule.kt
+│   │   │   ├── AppModule.kt
+│   │   │   ├── YourFeatureModule.kt
 │   │   │   └── ...
 │   │   ├── qualifier/
 │   │   │   └── AppQualifier.kt
 │   │   └── scope/
 │   │   │   ├── AppScope.kt
-│   │   │   ├── SomeFeatureScope.kt
+│   │   │   ├── YourFeatureScope.kt
 │   │   │   └── ...
 │   └── presentation/
 │       ├── base/
@@ -37,10 +37,10 @@ src/
 │       │   ├── ObservableView.kt
 │       │   └── SchedulerProvider.kt
 │       ├── somefeature/
-│       │   ├── SomeFeatureActivity.kt
-│       │   ├── SomeFeatureContract.kt
-│       │   ├── SomeFeatureFragment.kt
-│       │   └── SomeFeaturePresenter.kt
+│       │   ├── YourFeatureActivity.kt
+│       │   ├── YourFeatureContract.kt
+│       │   ├── YourFeatureFragment.kt
+│       │   └── YourFeaturePresenter.kt
 │       └── ...
 └── res/
     └── layout/
@@ -54,7 +54,7 @@ src/
 - Your app **must be** written in Kotlin
 
 - The generated files will be located in the **kotlin source set**
-  > yourmodule/src/main/kotlin
+  > app/src/main/kotlin
   
   Add this to your module `build.gradle`
   ```
@@ -120,10 +120,31 @@ src/
 
 1. In Android Studio, select the `Project` view
 2. Right click and select `New` > `Clean + MVP` > `DependencyInjection - Feature`. This will generate a `component`, a `module` and a `scope` for the feature
-3. In you `AppComponent` interface, add the following method:
+3. In your `AppComponent` interface, add the following method:
   ```
-  fun plus(module: YourModule): YourComponent
+  fun instantiateComponent(module: YourFeatureModule): YourFeatureComponent
   ```
+
+  Where `YourFeatureModule` should be replaced by the generated class in `di/module` and `YourFeatureComponent` should be replaced by the generated class in `di/component`
+4. In `YourFeatureComponent` add the `fun inject()` methods required to inject your activities and fragments that depend on that component
+5. In your `Application` class, add the following:
+5.1 a property to hold the component reference `private var yourFeatureComponent: YourFeatureComponent? = null` 
+5.2 the following methods to get and release the component:
+  ```
+  fun instantiateYourFeatureComponent(activity: FragmentActivity): YourFeatureComponent? {
+      if (featureComponent == null) {
+          featureComponent = appComponent.instantiateComponent(FeatureModule(activity))
+      }
+
+      return featureComponent
+  }
+
+  fun releaseFeatureComponent() {
+      featureComponent = null
+  }
+  ```
+
+  Where `YourFeatureComponent` should be replaced by the generated class in `di/component` and the method names should be meaningful, the first starting with `instantiante` and the second one starting with `release`
 
 #### Feature - Presentation
 
@@ -135,7 +156,8 @@ src/
 5.1 the `Contract` and the `Presenter`
 5.2 the `Activity` with layout
 5.3 the `Fragment` with layout
-6. If you are creating an activity **don't forget** to add it to the `AndroidManifest` 
+6. If you created an activity **don't forget** to add it to the `AndroidManifest`
+7. If you created an activity and/or a fragment, remember to check the `TODO`s. 
 
 ## Things you need to know if you're planning on editing this templates
 

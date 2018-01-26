@@ -5,10 +5,6 @@
         to="${escapeXmlAttribute(kotlinMainSourceSet)}/di/component/AppComponent.kt" />
 
     <instantiate
-        from="src/app_package/di/component/BaseFeatureComponent.kt.ftl"
-        to="${escapeXmlAttribute(kotlinMainSourceSet)}/di/component/BaseFeatureComponent.kt" />
-
-    <instantiate
         from="src/app_package/di/module/AppModule.kt.ftl"
         to="${escapeXmlAttribute(kotlinMainSourceSet)}/di/module/AppModule.kt" />
 

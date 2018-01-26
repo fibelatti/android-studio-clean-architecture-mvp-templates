@@ -2,7 +2,6 @@ package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
 import android.content.Context
 import android.os.Bundle
-import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
 import ${mainSourceSetPackage}.presentation.base.BaseActivity
 import ${mainSourceSetPackage}.presentation.base.BaseIntentBuilder
 
@@ -30,8 +29,7 @@ class ${activityName} :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         TODO("setContentView")
-
-        getComponent(this).inject(this)
+        TODO("YourApplicationFile.instance.plusYourComponent(activity = this)")
     }
 
     override fun onResume() {
@@ -43,12 +41,15 @@ class ${activityName} :
         TODO("presenter.unbind()")
         super.onPause()
     }
+
+    override fun onDestroy() {
+        TODO("YourApplicationFile.instance.clearYourComponent()")
+        super.onDestroy()
+    }
+
     //endregion
     
     //region Override methods
-    override fun getComponent(activity: BaseActivity): BaseFeatureComponent =
-        TODO("YourApplicationFile.appComponent.plus(YourFeatureModule(activity))")
-
     override fun handleError(errorMessage: String?) {
         TODO("not implemented")
     }

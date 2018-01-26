@@ -1,8 +1,6 @@
 package ${mainSourceSetPackage}.presentation.${packName?replace('_', '')}
 
 import android.content.Context
-import ${mainSourceSetPackage}.di.component.BaseFeatureComponent
-import ${mainSourceSetPackage}.presentation.base.BaseActivity
 import ${mainSourceSetPackage}.presentation.base.BaseFragment
 
 //region Top level declarations
@@ -24,7 +22,7 @@ class ${fragmentName} :
     //endregion
     
     //region Private properties
-    private lateinit var callback: Callback
+    private var callback: Callback? = null
     //endregion
     
     //region Override properties
@@ -34,8 +32,8 @@ class ${fragmentName} :
     override fun onAttach(context: Context?) {
         super.onAttach(context)
 
-        (activity as? BaseActivity)?.let {
-            getComponent(it).inject(this)
+        activity?.let {
+            TODO("YourApplicationFile.instance.plusYourComponent(activity = it)")
         }
     }
 
@@ -48,12 +46,14 @@ class ${fragmentName} :
         TODO("presenter.unbind()")
         super.onPause()
     }
+
+    override fun onDetach() {
+        TODO("YourApplicationFile.instance.clearYourComponent()")
+        super.onDetach()
+    }
     //endregion
     
     //region Override methods
-    override fun getComponent(activity: BaseActivity): BaseFeatureComponent =
-        activity.getComponent(activity)
-
     override fun handleError(errorMessage: String?) {
         TODO("not implemented")
     }

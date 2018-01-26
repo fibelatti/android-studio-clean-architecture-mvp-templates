@@ -8,4 +8,4 @@ import dagger.Subcomponent
         modules = [${moduleName}::class]
 )
 @${scopeName}
-interface ${componentName} : BaseFeatureComponent
+interface ${componentName}

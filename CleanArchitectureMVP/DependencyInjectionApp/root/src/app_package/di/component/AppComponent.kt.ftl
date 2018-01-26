@@ -8,6 +8,4 @@ import dagger.Component
         modules = [AppModule::class]
 )
 @AppScope
-interface AppComponent {
-    
-}
+interface AppComponent
